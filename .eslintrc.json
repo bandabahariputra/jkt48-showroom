@@ -1,0 +1,12 @@
+{
+  "extends": ["react-app", "react-app/jest", "prettier", "airbnb"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "arrow-function" }
+    ],
+    "react/jsx-no-useless-fragment": "off",
+    "react/prop-types": "off"
+  }
+}
