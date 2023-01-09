@@ -1,5 +1,5 @@
 const Title = ({ text }) => (
-  <h2 className="font-medium text-xl mb-6 border-b-2 border-slate-500 inline-block">
+  <h2 className="font-medium text-xl mb-6 border-b-4 border-slate-500 inline-block">
     {text}
   </h2>
 );
