@@ -11,7 +11,7 @@ const RoomDetails = () => {
   const [description, setDescription] = useState(null);
 
   const { data } = useFetch(
-    `https://mycorsproxy-tuto.herokuapp.com/https://www.showroom-live.com/api/room/profile?room_id=${id}`,
+    `https://api.codetabs.com/v1/proxy/?quest=https://www.showroom-live.com/api/room/profile?room_id=${id}`,
   );
 
   const toHumanDate = (timestamp) => DateTime.fromSeconds(timestamp)

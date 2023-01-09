@@ -8,11 +8,11 @@ const Home = () => {
   const [members, setMembers] = useState(null);
 
   const { data } = useFetch(
-    'https://mycorsproxy-tuto.herokuapp.com/https://campaign.showroom-live.com/akb48_sr/data/room_status_list.json',
+    'https://api.codetabs.com/v1/proxy/?quest=https://campaign.showroom-live.com/akb48_sr/data/room_status_list.json',
   );
 
   useEffect(() => {
-    const graduatedMembers = ['JKT48_Celine'];
+    const graduatedMembers = [];
 
     if (data) {
       const jkt48Members = data
