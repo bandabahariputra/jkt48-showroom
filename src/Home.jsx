@@ -7,15 +7,15 @@ import Skeleton from './Skeleton';
 const Home = () => {
   const [members, setMembers] = useState(null);
 
-  const { data } = useFetch(
+  const { data: regularMembers } = useFetch(
     'https://api.codetabs.com/v1/proxy/?quest=https://campaign.showroom-live.com/akb48_sr/data/room_status_list.json',
   );
 
   useEffect(() => {
     const graduatedMembers = [];
 
-    if (data) {
-      const jkt48Members = data
+    if (regularMembers) {
+      const jkt48Members = regularMembers
         .filter(
           (item) => item.name.includes('JKT48')
             && !graduatedMembers.includes(item.url_key),
@@ -24,7 +24,7 @@ const Home = () => {
 
       setMembers(jkt48Members);
     }
-  }, [data]);
+  }, [regularMembers]);
 
   return (
     <>
