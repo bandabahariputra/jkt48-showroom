@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DateTime } from 'luxon';
-import useFetch from './useFetch';
-import Title from './Title';
-import Skeleton from './Skeleton';
+import useFetch from '../hooks/useFetch';
+import Title from '../components/Title';
+import Skeleton from '../components/Skeleton';
 
 const RoomDetails = () => {
   const { id } = useParams();

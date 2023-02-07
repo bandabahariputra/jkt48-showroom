@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import PROXY from './api';
-import useFetch from './useFetch';
-import Title from './Title';
-import Card from './Card';
-import Skeleton from './Skeleton';
+import PROXY from '../utils/api';
+import useFetch from '../hooks/useFetch';
+import Title from '../components/Title';
+import Card from '../components/Card';
+import Skeleton from '../components/Skeleton';
 
 const Home = () => {
   const [members, setMembers] = useState(null);
