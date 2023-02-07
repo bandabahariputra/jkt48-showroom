@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DateTime } from 'luxon';
+import { getUserApi } from '../utils/api';
 import useFetch from '../hooks/useFetch';
 import Title from '../components/Title';
 import Skeleton from '../components/Skeleton';
@@ -10,9 +11,7 @@ const RoomDetails = () => {
 
   const [description, setDescription] = useState(null);
 
-  const { data } = useFetch(
-    `https://api.codetabs.com/v1/proxy/?quest=https://www.showroom-live.com/api/room/profile?room_id=${id}`,
-  );
+  const { data } = useFetch(getUserApi(id));
 
   const toHumanDate = (timestamp) => DateTime.fromSeconds(timestamp)
     .setLocale('id')

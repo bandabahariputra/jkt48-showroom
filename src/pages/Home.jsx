@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import PROXY from '../utils/api';
+import { allMembersApi, getUserApi } from '../utils/api';
 import useFetch from '../hooks/useFetch';
 import Title from '../components/Title';
 import Card from '../components/Card';
@@ -45,9 +45,7 @@ const Home = () => {
     },
   ];
 
-  const { data: regularMembers } = useFetch(
-    `${PROXY}https://campaign.showroom-live.com/akb48_sr/data/room_status_list.json`,
-  );
+  const { data: regularMembers } = useFetch(allMembersApi);
 
   useEffect(() => {
     const graduatedMembers = [];
@@ -68,7 +66,7 @@ const Home = () => {
     // academy members
     const getAcademyMembers = async () => {
       const acms = await Promise.all(academyMemberIds.map(async (academy) => {
-        const { data: acm } = await axios.get(`${PROXY}https://www.showroom-live.com/api/room/profile?room_id=${academy.id}`);
+        const { data: acm } = await axios.get(getUserApi(academy.id));
 
         return acm;
       }));
