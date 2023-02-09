@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { DateTime } from 'luxon';
 import { getUserApi } from '../utils/api';
+import parseDescription from '../utils/parseDescription';
 import useFetch from '../hooks/useFetch';
 import Title from '../components/Title';
 import Skeleton from '../components/Skeleton';
@@ -19,18 +20,7 @@ const RoomDetails = () => {
 
   useEffect(() => {
     if (data) {
-      const arrDescription = data.description
-        .split('\r\n')
-        .map((item) => item.replace(/"/g, '').split(':'))
-        .filter((item) => item.length > 1)
-        .map((item) => {
-          if (item[0] === 'Twitter' || item[0] === 'Instagram') {
-            return [item[0], item.pop()];
-          }
-          return item;
-        });
-      const objDescription = Object.fromEntries(arrDescription);
-      setDescription(objDescription);
+      setDescription(parseDescription(data.description));
     }
   }, [data]);
 
