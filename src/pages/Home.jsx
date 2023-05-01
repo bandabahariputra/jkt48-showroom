@@ -16,10 +16,6 @@ const Home = () => {
       name: 'amanda',
     },
     {
-      id: '400712',
-      name: 'giselle',
-    },
-    {
       id: '400713',
       name: 'lia',
     },
